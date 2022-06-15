@@ -1,0 +1,368 @@
+body {
+    background-color: #F0F2F5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar.navbar-expand-lg {
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 10px #e2e2e2;
+    padding: 0px;
+    width: 100%;
+    position: fixed;
+}
+
+.navbar-brand {
+    padding: 0px;
+
+}
+
+.navbar-brand img {
+    width: 72px;
+}
+
+.nav-item {
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+.nav-item.nav-item-icon {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.nav-item.nav-item-icon img {
+    width: 20px;
+}
+
+.personal_item {
+    min-width: 200px;
+    padding-left: 0px
+}
+
+#avatar_personale {
+    margin-right: 10px;
+}
+
+@keyframes example {
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: -72px;
+    }
+}
+
+/* @keyframes example2 {
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: -720px;
+    }
+} */
+
+
+/* //BAI VIET CONTENT */
+#bai_viet {
+    padding-bottom: 10px;
+    border-radius: 12px;
+    background-color: white;
+}
+
+/* AVt và thông tin */
+#author_inf {
+    padding: 10px;
+    /* display: -webkit-box; 
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;  */
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+}
+
+#name_and_time {
+    display: block;
+}
+
+#avt_author {
+    display: inline;
+}
+
+#avt_author a {
+    display: inline
+}
+
+#name_author {
+    font-size: 19px;
+    font-weight: 700;
+    display: block;
+}
+
+#time_postion {
+
+    display: block;
+    font-size: 14px;
+    color: #3C3C3C;
+    font-weight: 700;
+
+}
+
+#comment_uer {
+    display: flex;
+    margin-left: 8px;
+    justify-content: baseline;
+
+}
+#trang-thai-cmt{
+    margin-left:75px ; 
+    margin-bottom:0px;
+    display : none;
+    
+}
+
+#comment_uer button {
+    border: none;
+    background-color: #fff;
+}
+
+#a_avatar {
+    padding: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#input_cmt {
+
+    background-color: #EDEDED;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    Height: auto;
+
+}
+
+#input_cmt textarea {
+    margin-top: 4px;
+    background-color: #EDEDED;
+    border: none;
+    outline: none;
+    resize: none;
+    width: 90%;
+    margin-left: 20px;
+}
+
+#input_image {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+}
+#input_image > div {
+display :block;
+width:  120px;
+}
+
+#input_image div img {
+
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+#input_image div button{
+    position: relative;
+    top: -15px;
+    background-color:#1976d200
+}
+#input_image div button img {
+
+    width: 15px;
+    height: 15px;
+}
+
+/* Comment */
+
+
+
+.card-no-border .card {
+    border: 0px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.comment-widgets .comment-row:hover {
+    background: rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+}
+
+.comment-widgets .comment-row {
+    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+    padding: 5px;
+}
+
+.comment-text:hover {
+    visibility: hidden;
+}
+
+.comment-text:hover {
+    visibility: visible;
+}
+
+.label {
+    padding: 3px 10px;
+    line-height: 13px;
+    color: #ffffff;
+    font-weight: 400;
+    border-radius: 4px;
+    font-size: 75%;
+}
+
+.round img {
+    vertical-align: middle;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.label-info {
+    background-color: #1976d2;
+}
+
+.label-success {
+    background-color: green;
+}
+
+.label-danger {
+    background-color: #ef5350;
+}
+
+.action-icons p {
+    padding-left: 7px;
+    vertical-align: middle;
+    color: #99abb4;
+    display: inline;
+
+}
+
+.action-icons p:hover {
+    color: #1976d2;
+    display: inline;
+}
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.mb-100 {
+    margin-bottom: 100px
+}
+
+.comment-text.w-100 p {
+    font-size: 15px;
+}
+
+.comment-text.w-100 h5 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+
+.comment-text.w-100 .comment-footer .date {
+    font-size: 13px;
+}
+
+
+
+
+/* ///////////////////// */
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
