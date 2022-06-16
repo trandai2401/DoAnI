@@ -522,6 +522,8 @@ class ComposerStaticInit9b03a192259839a4bb957d3d223221db
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\ChatEvent' => __DIR__ . '/../..' . '/app/Events/ChatEvent.php',
+        'App\\Events\\ChatPublicEvent' => __DIR__ . '/../..' . '/app/Events/ChatPublicEvent.php',
         'App\\Events\\MessageSent' => __DIR__ . '/../..' . '/app/Events/MessageSent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -540,6 +542,7 @@ class ComposerStaticInit9b03a192259839a4bb957d3d223221db
         'App\\Models\\DanhMucCon' => __DIR__ . '/../..' . '/app/Models/DanhMucCon.php',
         'App\\Models\\DiaChiChiTiet' => __DIR__ . '/../..' . '/app/Models/DiaChiChiTiet.php',
         'App\\Models\\HinhAnh' => __DIR__ . '/../..' . '/app/Models/HinhAnh.php',
+        'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
         'App\\Models\\QuanHuyen' => __DIR__ . '/../..' . '/app/Models/QuanHuyen.php',
         'App\\Models\\ThanhPho' => __DIR__ . '/../..' . '/app/Models/ThanhPho.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

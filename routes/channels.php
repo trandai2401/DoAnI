@@ -24,3 +24,8 @@ Broadcast::channel('baiviet.{id}', function ($user) {
 
     return $user;
 });
+Broadcast::channel('chat.{id}', function ($user) {
+    // echo $id;
+    
+        return $user;
+    });

@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\ChatEvent' => $baseDir . '/app/Events/ChatEvent.php',
+    'App\\Events\\ChatPublicEvent' => $baseDir . '/app/Events/ChatPublicEvent.php',
     'App\\Events\\MessageSent' => $baseDir . '/app/Events/MessageSent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -25,6 +27,7 @@ return array(
     'App\\Models\\DanhMucCon' => $baseDir . '/app/Models/DanhMucCon.php',
     'App\\Models\\DiaChiChiTiet' => $baseDir . '/app/Models/DiaChiChiTiet.php',
     'App\\Models\\HinhAnh' => $baseDir . '/app/Models/HinhAnh.php',
+    'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\QuanHuyen' => $baseDir . '/app/Models/QuanHuyen.php',
     'App\\Models\\ThanhPho' => $baseDir . '/app/Models/ThanhPho.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

@@ -277,9 +277,9 @@
                         @foreach ( App\Models\BinhLuan::all() as $item)
                             <div id="comment_id_{{ $item->id }}" class="d-flex flex-row comment-row ">
                                 <div class="p-2"><span class="round"><img
-                                            src="https://i.imgur.com/tT8rjKC.jpg" alt="user" width="50"></span></div>
+                                            src="{{$item->user->avt}}" alt="user" width="50"></span></div>
                                 <div class="comment-text active w-100">
-                                    <h5>Jonty Andrews</h5>
+                                    <h5>{{$item->user->name}}</h5>
                                     <div class="comment-footer">
                                         <span class="date">{{ date('h:m d/m/Y', $item->create_at) }}</span>
                                         <span class="label label-success">Approved</span> <span
