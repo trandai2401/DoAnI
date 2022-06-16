@@ -296,7 +296,7 @@
                                             <a href="#" data-abc="true" style="display: flex; float: right; text-decoration-line: none;"><i class="fa fa-heart" style="text-decoration-line: none; margin-top: 4px;margin-right: 5px"></i>12345</a>
                                         </span>
                                     </div>
-                                    <p class="m-b-5 m-t-10">{{ $item->noidung }}</p>
+                                    <p id='comment_content_{{$item->id}}' class="m-b-5 m-t-10">{{ $item->noidung }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -428,6 +428,13 @@
         // span.onclick = function() {
         //     modal.style.display = "none";
         // }
+
+        function deleteMessage(id){
+            vue.deleteMessage(id);
+        }
+        function changeTypeToUpdate(comment_id, mess){
+            vue.changeTypeToUpdate(comment_id,mess);
+        }
     </script>
 
 
@@ -440,7 +447,7 @@
 
 
     <script>
-        new Vue({
+        var vue = new Vue({
             el: "#app",
             data() {
                 return {
@@ -480,7 +487,6 @@
                     this.comment_id_update = id;
                     this.sendMessageCreate('DELETE')
                 },
-
                 removeComment(id) {
                     document.getElementById('comment_id_'+id).remove();
 
@@ -493,26 +499,43 @@
 
                     this.message = ""
                 },
-                changeTypeToUpdate(comment_id, mess) {
+                changeTypeToUpdate(comment_id, mess) { 
                     this.message = mess
                     this.typeOfMessage = "update"
                     this.comment_id_update = comment_id;
+                    document.querySelector('#trang-thai-cmt').scrollIntoView({
+  behavior: 'smooth',
+    block: "center"
+});
+
 
                 },
 
-                appendComment(user, message) {
+                appendComment(user, message,comment_id) {
                     var div = document.createElement('div')
-
+                    var date = new Date(message.created_at);
+                    var dateString = (date.getHours())+':'+date.getMinutes()+' '+date.getDate()+'/'+(date.getMonth()+1)+'/'+(1900+date.getYear());
 
                     div.innerHTML =
-                        '<div class="d-flex flex-row comment-row "> <div class="p-2"><span class="round"><img src="https://i.imgur.com/tT8rjKC.jpg" alt="user" width="50"></span></div> <div class="comment-text active w-100"> <h5>Jonty Andrews</h5> <div class="comment-footer"> <span class="date">March 13, 2020</span> <span class="label label-success">Approved</span> <span class="action-icons active"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right text-success"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart text-danger"></i></a> </span> </div> <p class="m-b-5 m-t-10">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites</p> </div> </div>'
+                        '<div id="comment_id_'+message.id+'" class="d-flex flex-row comment-row "> <div class="p-2"><span class="round"><img src="'+user.avt+'" alt="user" width="50"></span></div> <div class="comment-text active w-100"> <h5>'+user.name+'</h5> <div class="comment-footer"> <span class="date"> '+dateString+' </span> <span class="label label-success">Approved</span> <span class="action-icons active"> @if (auth()->id() == $item->user_id) <p onclick="changeTypeToUpdate( '+message.id+',\''+message.noidung+'\')"> <i class="fa fa-pencil"></i></p> <p onclick="deleteMessage('+message.id+')" href="#" data-abc="true"><i class="fa-solid fa-trash-can text-danger"></i></p> @endif <p href="#" data-abc="true"><i class="fa fa-heart text-danger"></i></p> <a href="#" data-abc="true" style="display: flex; float: right; text-decoration-line: none;"><i class="fa fa-heart" style="text-decoration-line: none; margin-top: 4px;margin-right: 5px"></i>12345</a> </span> </div> <p id="comment_content_'+message.id+'" class="m-b-5 m-t-10">'+message.noidung+'</p> </div> </div>'
                     let listComment = document.getElementById('list_comment');
                     listComment.insertBefore(div, listComment.childNodes[0]);
+                },
+                updateComment(message) {
+                    document.getElementById('comment_content_'+message.id).innerHTML = message.noidung;
+                    if({{auth()->user()->id}}== message.user_id){
+                        document.querySelector('#comment_content_'+message.id).scrollIntoView({
+                        behavior: 'smooth',
+                            block: "center"
+});
+                    }
+
+                    
                 }
 
             },
             mounted() {
-                const echo = new Echo({
+                var echo = new Echo({
                     broadcaster: "socket.io",
                     host: window.location.hostname + ':6001'
                 })
@@ -525,7 +548,7 @@
                         if(event.type== 'create'){
                             this.appendComment(event.user, event.message);
                         }else if(event.type == 'update'){
-                            this.appendComment(event.user, event.message);
+                            this.updateComment(event.message);
                         }else{
                             this.removeComment(event.comment_id);
                         }

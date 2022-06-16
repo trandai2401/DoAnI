@@ -43,7 +43,7 @@ Route::post('binhluan', function (Request $request) {
     $binhLuan->baiviet_id = $request->input('idBaiViet');
     $binhLuan->save();
 
-    broadcast(new MessageSent(auth()->user() ?? User::find(1), $request->input('message'), $request->input('idBaiViet'), 'create',$binhLuan->id));
+    broadcast(new MessageSent(auth()->user() ?? User::find(1), $binhLuan, $request->input('idBaiViet'), 'create',$binhLuan->id));
     return $request->input('message');
 });
 
@@ -56,7 +56,7 @@ Route::patch('binhluan', function (Request $request) {
 
 
 
-    broadcast(new MessageSent(auth()->user() ?? User::find(1), $request->input('message'), $request->input('idBaiViet'), 'update',$binhLuan->id));
+    broadcast(new MessageSent(auth()->user() ?? User::find(1),$binhLuan, $request->input('idBaiViet'), 'update',$binhLuan->id));
     return $request->input('message');
 });
 
